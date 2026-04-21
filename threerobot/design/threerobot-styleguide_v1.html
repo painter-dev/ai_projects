@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>threeRobot — Brand Style Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+  /* ─── TOKENS ─────────────────────────────────────── */
+  :root {
+    --ink:     #1A1A18;
+    --cobalt:  #185FA5;
+    --cobalt-light: #1a6ec2;
+    --ice:     #E6F1FB;
+    --pebble:  #D3D1C7;
+    --spark:   #F5C842;
+    --signal:  #3B6D11;
+    --bg:      #ffffff;
+    --surface: #F8F8F6;
+    --surface2:#F1EFE8;
+    --border:  #E2E0D8;
+    --text-primary: #1A1A18;
+    --text-secondary: #5F5E5A;
+    --text-muted: #B4B2A9;
+
+    --font-display: 'Rajdhani', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 14px;
+    --radius-xl: 22px;
+    --radius-pill: 999px;
+
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+    --space-8: 64px;
+    --space-9: 96px;
+
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.14);
+    --shadow-cobalt: 0 4px 24px rgba(24,95,165,0.22);
+    --shadow-spark:  0 4px 24px rgba(245,200,66,0.3);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ─── LAYOUT ─────────────────────────────────────── */
+  .page { max-width: 1080px; margin: 0 auto; padding: 0 40px 120px; }
+
+  .section {
+    padding: var(--space-8) 0 var(--space-7);
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-child { border-bottom: none; }
+
+  .section-tag {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: var(--space-4);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--text-primary);
+    margin-bottom: var(--space-6);
+  }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-5); }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); }
+  .grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-3); }
+
+  /* ─── HEADER ─────────────────────────────────────── */
+  .guide-header {
+    padding: var(--space-8) 0 var(--space-7);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .wordmark {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+  .wordmark .three { color: var(--text-primary); }
+  .wordmark .robot { color: var(--cobalt); }
+
+  .header-meta { text-align: right; color: var(--text-secondary); font-size: 11px; line-height: 2; }
+
+  /* ─── COLOR ──────────────────────────────────────── */
+  .swatch {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .swatch-block { height: 80px; }
+  .swatch-info { padding: var(--space-3) var(--space-3) var(--space-3); background: var(--surface); }
+  .swatch-name { font-size: 12px; font-weight: 700; color: var(--text-primary); margin-bottom: 2px; }
+  .swatch-hex  { font-size: 10px; color: var(--text-secondary); }
+  .swatch-use  { font-size: 9px; color: var(--text-muted); margin-top: 4px; letter-spacing: 0.04em; }
+
+  /* ─── TYPOGRAPHY ─────────────────────────────────── */
+  .type-row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-6);
+    padding: var(--space-5) 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .type-row:last-child { border-bottom: none; }
+  .type-meta { width: 180px; flex-shrink: 0; }
+  .type-meta-label { font-size: 10px; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+  .type-meta-spec  { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+  .type-sample { flex: 1; }
+
+  .t-display-xl  { font-family: var(--font-display); font-size: 64px; font-weight: 700; line-height: 1.05; color: var(--text-primary); letter-spacing: 0.02em; }
+  .t-display-lg  { font-family: var(--font-display); font-size: 48px; font-weight: 700; line-height: 1.1;  color: var(--text-primary); letter-spacing: 0.02em; }
+  .t-display-md  { font-family: var(--font-display); font-size: 32px; font-weight: 600; line-height: 1.2;  color: var(--text-primary); letter-spacing: 0.02em; }
+  .t-heading     { font-family: var(--font-display); font-size: 24px; font-weight: 600; line-height: 1.3;  color: var(--text-primary); letter-spacing: 0.02em; }
+  .t-subheading  { font-family: var(--font-mono);    font-size: 15px; font-weight: 700; line-height: 1.4;  color: var(--text-primary); }
+  .t-body        { font-family: var(--font-mono);    font-size: 13px; font-weight: 400; line-height: 1.8;  color: var(--text-secondary); }
+  .t-small       { font-family: var(--font-mono);    font-size: 11px; font-weight: 400; line-height: 1.6;  color: var(--text-secondary); }
+  .t-caption     { font-family: var(--font-mono);    font-size: 10px; font-weight: 400; line-height: 1.5;  letter-spacing: 0.12em; color: var(--text-muted); text-transform: uppercase; }
+  .t-code        { font-family: var(--font-mono);    font-size: 12px; color: var(--cobalt); background: var(--ice); padding: 2px 6px; border-radius: var(--radius-sm); border: 1px solid #c5d9ef; }
+
+  /* ─── SPACING ────────────────────────────────────── */
+  .space-row { display: flex; align-items: center; gap: var(--space-5); padding: var(--space-3) 0; border-bottom: 1px solid var(--border); }
+  .space-row:last-child { border-bottom: none; }
+  .space-bar-wrap { width: 300px; flex-shrink: 0; }
+  .space-bar { background: var(--cobalt); opacity: 0.7; height: 20px; border-radius: 2px; }
+  .space-label { font-size: 11px; color: var(--text-secondary); }
+  .space-token { font-size: 10px; color: var(--text-muted); }
+
+  /* ─── BUTTONS ────────────────────────────────────── */
+  .btn-row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; margin-bottom: var(--space-5); }
+
+  .btn {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 10px 22px;
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    background: var(--cobalt);
+    color: #fff;
+    box-shadow: var(--shadow-cobalt);
+  }
+  .btn-primary:hover { background: #1a6ec2; transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--cobalt);
+    border: 1px solid var(--cobalt);
+  }
+  .btn-secondary:hover { background: var(--ice); }
+
+  .btn-spark {
+    background: var(--spark);
+    color: var(--ink);
+    box-shadow: var(--shadow-spark);
+  }
+  .btn-spark:hover { background: #f7d050; transform: translateY(-1px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+  }
+  .btn-ghost:hover { border-color: var(--pebble); color: var(--text-primary); background: var(--surface); }
+
+  .btn-danger {
+    background: transparent;
+    color: #b91c1c;
+    border: 1px solid #fca5a5;
+  }
+  .btn-danger:hover { background: #fef2f2; }
+
+  .btn-sm { padding: 6px 14px; font-size: 11px; }
+  .btn-lg { padding: 14px 32px; font-size: 15px; border-radius: var(--radius-lg); }
+  .btn-pill { border-radius: var(--radius-pill); }
+
+  .btn-icon { padding: 10px; }
+
+  /* ─── INPUTS ─────────────────────────────────────── */
+  .input-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: var(--space-4); }
+  .input-label { font-size: 11px; color: var(--text-secondary); letter-spacing: 0.06em; }
+  .input {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    padding: 10px 14px;
+    width: 100%;
+    transition: border-color 0.15s;
+    outline: none;
+  }
+  .input::placeholder { color: var(--text-muted); }
+  .input:focus { border-color: var(--cobalt); box-shadow: 0 0 0 3px rgba(24,95,165,0.15); }
+  .input-error { border-color: #f87171; }
+  .input-error:focus { box-shadow: 0 0 0 3px rgba(248,113,113,0.15); }
+  .input-success { border-color: var(--signal); }
+  .helper { font-size: 10px; color: var(--text-muted); }
+  .helper-error { font-size: 10px; color: #f87171; }
+
+  /* ─── BADGES ─────────────────────────────────────── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    text-transform: uppercase;
+  }
+  .badge-cobalt  { background: var(--ice);  color: var(--cobalt); border: 1px solid #b5d0ea; }
+  .badge-spark   { background: #fef9e7;  color: #8a6500; border: 1px solid #e8d060; }
+  .badge-signal  { background: #eef6e6;  color: #2d5509; border: 1px solid #9ec87a; }
+  .badge-danger  { background: #fef2f2;  color: #991b1b; border: 1px solid #fca5a5; }
+  .badge-neutral { background: var(--surface2); color: var(--text-secondary); border: 1px solid var(--border); }
+  .badge-dot::before { content: ''; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+  /* ─── CARDS ──────────────────────────────────────── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { border-color: #3a3a38; box-shadow: var(--shadow-md); }
+
+  .card-accent {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--cobalt);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+  }
+
+  .card-spark {
+    background: var(--surface);
+    border: 1px solid rgba(245,200,66,0.2);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    box-shadow: 0 0 0 1px rgba(245,200,66,0.05) inset;
+  }
+
+  .card-title { font-family: var(--font-display); font-size: 18px; font-weight: 600; letter-spacing: 0.02em; margin-bottom: 8px; }
+  .card-body  { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+  .card-meta  { font-size: 10px; color: var(--text-muted); margin-top: var(--space-4); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* ─── ICONS / INDICATORS ─────────────────────────── */
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
+  .dot-cobalt { background: var(--cobalt); }
+  .dot-spark  { background: var(--spark); }
+  .dot-signal { background: var(--signal); }
+  .dot-danger { background: #f87171; }
+  .dot-muted  { background: var(--text-muted); }
+
+  /* ─── TABLES ─────────────────────────────────────── */
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th { font-size: 10px; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase; text-align: left; padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--border); }
+  td { padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--surface); }
+
+  /* ─── ALERTS ─────────────────────────────────────── */
+  .alert {
+    display: flex;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-lg);
+    font-size: 13px;
+    margin-bottom: var(--space-3);
+    border-left: 3px solid;
+  }
+  .alert-info    { background: var(--ice);   border-color: var(--cobalt);  color: #0c4a8a; }
+  .alert-success { background: #eef6e6;       border-color: var(--signal);  color: #1a4a06; }
+  .alert-warning { background: #fef9e7;       border-color: #c8a020;        color: #6b4a00; }
+  .alert-danger  { background: #fef2f2;       border-color: #ef4444;        color: #7f1d1d; }
+  .alert-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+  .alert-title { font-weight: 500; margin-bottom: 2px; }
+  .alert-body { font-size: 12px; opacity: 0.8; }
+
+  /* ─── PROGRESS ───────────────────────────────────── */
+  .progress-wrap { background: var(--surface2); border-radius: var(--radius-pill); height: 6px; overflow: hidden; margin-bottom: var(--space-3); }
+  .progress-bar  { height: 100%; border-radius: var(--radius-pill); transition: width 0.3s ease; }
+
+  /* ─── NAVIGATION ─────────────────────────────────── */
+  .nav-demo {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-5);
+  }
+  .nav-logo { font-family: var(--font-display); font-size: 20px; font-weight: 700; letter-spacing: 0.02em; }
+  .nav-links { display: flex; gap: var(--space-5); }
+  .nav-link { font-size: 12px; color: var(--text-secondary); text-decoration: none; letter-spacing: 0.04em; }
+  .nav-link.active { color: var(--text-primary); font-weight: 700; }
+  .nav-cta { font-family: var(--font-mono); font-size: 12px; font-weight: 700; background: var(--cobalt); color: #fff; padding: 7px 16px; border-radius: var(--radius-md); text-decoration: none; }
+
+  /* ─── AVATAR ─────────────────────────────────────── */
+  .avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .avatar-cobalt { background: var(--ice); color: var(--cobalt); border: 1px solid #b5d0ea; }
+  .avatar-spark  { background: #fef9e7; color: #7a5500; border: 1px solid #e8d060; }
+  .avatar-signal { background: #eef6e6; color: #2d5509; border: 1px solid #9ec87a; }
+
+  .avatar-row { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); }
+  .avatar-info .name { font-size: 13px; font-weight: 500; }
+  .avatar-info .role { font-size: 11px; color: var(--text-muted); }
+
+  /* ─── TOGGLE ─────────────────────────────────────── */
+  .toggle-wrap { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3); cursor: pointer; }
+  .toggle {
+    width: 40px; height: 22px;
+    background: var(--pebble);
+    border: 1px solid #b4b2a9;
+    border-radius: var(--radius-pill);
+    position: relative;
+    transition: background 0.2s;
+  }
+  .toggle.on { background: var(--cobalt); border-color: var(--cobalt); }
+  .toggle::after {
+    content: '';
+    position: absolute;
+    width: 16px; height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    top: 2px; left: 2px;
+    transition: transform 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  .toggle.on::after { transform: translateX(18px); }
+  .toggle-label { font-size: 12px; color: var(--text-secondary); }
+
+  /* ─── STAT CARD ──────────────────────────────────── */
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+  }
+  .stat-label { font-size: 10px; letter-spacing: 0.1em; color: var(--text-muted); text-transform: uppercase; margin-bottom: var(--space-2); }
+  .stat-value { font-family: var(--font-display); font-size: 36px; font-weight: 700; line-height: 1; margin-bottom: var(--space-2); letter-spacing: 0.02em; }
+  .stat-delta { font-size: 11px; }
+  .delta-up   { color: #2d6a0a; }
+  .delta-down { color: #b91c1c; }
+
+  /* ─── DIVIDER ─────────────────────────────────────── */
+  hr { border: none; border-top: 1px solid var(--border); margin: var(--space-6) 0; }
+
+  /* ─── CODE BLOCK ─────────────────────────────────── */
+  .code-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    font-size: 12px;
+    color: var(--cobalt);
+    overflow-x: auto;
+    margin-top: var(--space-4);
+    line-height: 1.8;
+  }
+  .code-block .comment { color: var(--text-muted); }
+  .code-block .key     { color: var(--ink); font-weight: 700; }
+  .code-block .val     { color: var(--cobalt); }
+
+  /* ─── LOGO SVG ───────────────────────────────────── */
+  .logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1A1A18;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-7);
+    margin-bottom: var(--space-5);
+  }
+
+  .logo-variants { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); }
+  .logo-variant {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    min-height: 140px;
+  }
+  .logo-variant-label { font-size: 10px; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  .wm-hero { font-family: var(--font-display); font-size: 42px; font-weight: 700; letter-spacing: 0.02em; }
+  .wm-sm   { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: 0.02em; }
+  .wm-xs   { font-family: var(--font-display); font-size: 16px; font-weight: 600; letter-spacing: 0.02em; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="guide-header">
+    <div>
+      <div class="wordmark"><span class="three">three</span><span class="robot">Robot</span></div>
+      <div style="font-size:11px; color:var(--text-muted); margin-top:8px; letter-spacing:0.08em;">BRAND STYLE GUIDE</div>
+    </div>
+    <div class="header-meta">
+      Version 1.0<br>
+      optimize · personalize · connect<br>
+      <span style="color:var(--text-muted);">threeRobot Systems</span>
+    </div>
+  </header>
+
+
+  <!-- 01 LOGO -->
+  <section class="section">
+    <div class="section-tag">01 / Logo</div>
+    <div class="section-title">Logo Mark</div>
+
+    <!-- Primary logo SVG (robots) -->
+    <div class="logo-section">
+      <svg width="700" height="220" viewBox="0 0 880 280" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sg-blue" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D8E8F8"/><stop offset="45%" stop-color="#B5CADF"/><stop offset="100%" stop-color="#7A9AB8"/></linearGradient>
+          <linearGradient id="sg-bf" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C8DAEE"/><stop offset="100%" stop-color="#8AAECA"/></linearGradient>
+          <linearGradient id="sg-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFE97A"/><stop offset="45%" stop-color="#F5C842"/><stop offset="100%" stop-color="#C89E20"/></linearGradient>
+          <linearGradient id="sg-gf" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFE060"/><stop offset="100%" stop-color="#D4A820"/></linearGradient>
+          <linearGradient id="sg-peb" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ECEAE2"/><stop offset="45%" stop-color="#D3D1C7"/><stop offset="100%" stop-color="#9A9890"/></linearGradient>
+          <linearGradient id="sg-pf" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3a3a38"/><stop offset="100%" stop-color="#1a1a18"/></linearGradient>
+          <linearGradient id="sg-eb" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#4a9eff"/><stop offset="100%" stop-color="#0a3d7a"/></linearGradient>
+          <linearGradient id="sg-ea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d97706"/><stop offset="100%" stop-color="#7c2d00"/></linearGradient>
+          <linearGradient id="sg-ebl" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#8AAECA"/><stop offset="100%" stop-color="#C8DAEE"/></linearGradient>
+          <linearGradient id="sg-ebr" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#C8DAEE"/><stop offset="100%" stop-color="#8AAECA"/></linearGradient>
+          <linearGradient id="sg-egl" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#B8901A"/><stop offset="100%" stop-color="#FFE060"/></linearGradient>
+          <linearGradient id="sg-egr" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FFE060"/><stop offset="100%" stop-color="#B8901A"/></linearGradient>
+          <linearGradient id="sg-epl" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#8a8880"/><stop offset="100%" stop-color="#ECEAE2"/></linearGradient>
+          <linearGradient id="sg-epr" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#ECEAE2"/><stop offset="100%" stop-color="#8a8880"/></linearGradient>
+        </defs>
+        <!-- Robot 1 -->
+        <rect x="152" y="14" width="7" height="34" rx="3.5" fill="#6a8aaa"/>
+        <ellipse cx="155" cy="14" rx="9" ry="9" fill="url(#sg-eb)"/>
+        <ellipse cx="155" cy="11" rx="4" ry="3" fill="#8ac4ff" opacity="0.6"/>
+        <rect x="55" y="102" width="16" height="60" rx="4" fill="url(#sg-ebl)" stroke="#6a8aaa" stroke-width="1"/>
+        <rect x="239" y="102" width="16" height="60" rx="4" fill="url(#sg-ebr)" stroke="#6a8aaa" stroke-width="1"/>
+        <rect x="71" y="46" width="168" height="168" rx="26" fill="url(#sg-blue)" stroke="#6a8aaa" stroke-width="1.5"/>
+        <rect x="90" y="48" width="130" height="17" rx="12" fill="#ffffff" opacity="0.18"/>
+        <rect x="87" y="68" width="136" height="130" rx="14" fill="url(#sg-bf)" stroke="#7A9AB8" stroke-width="1"/>
+        <rect x="94" y="76" width="46" height="5" rx="2.5" fill="#185FA5" opacity="0.5"/>
+        <rect x="170" y="76" width="46" height="5" rx="2.5" fill="#185FA5" opacity="0.5"/>
+        <rect x="92" y="84" width="50" height="42" rx="9" fill="#0a1628"/>
+        <rect x="168" y="84" width="50" height="42" rx="9" fill="#0a1628"/>
+        <rect x="94" y="86" width="46" height="38" rx="8" fill="url(#sg-eb)"/>
+        <rect x="170" y="86" width="46" height="38" rx="8" fill="url(#sg-eb)"/>
+        <ellipse cx="112" cy="96" rx="13" ry="7" fill="#ffffff" opacity="0.35"/>
+        <ellipse cx="188" cy="96" rx="13" ry="7" fill="#ffffff" opacity="0.35"/>
+        <circle cx="117" cy="105" r="8" fill="#051020"/>
+        <circle cx="193" cy="105" r="8" fill="#051020"/>
+        <circle cx="155" cy="140" r="7" fill="#0a1628"/>
+        <rect x="98" y="156" width="114" height="18" rx="9" fill="#0a1628"/>
+        <rect x="100" y="158" width="110" height="14" rx="7" fill="#0d1e36"/>
+        <rect x="129" y="216" width="52" height="22" rx="7" fill="url(#sg-blue)" stroke="#6a8aaa" stroke-width="1"/>
+        <!-- Robot 2 -->
+        <rect x="420" y="14" width="7" height="34" rx="3.5" fill="#c8a020"/>
+        <rect x="453" y="14" width="7" height="34" rx="3.5" fill="#c8a020"/>
+        <ellipse cx="423" cy="14" rx="9" ry="9" fill="url(#sg-gold)"/>
+        <ellipse cx="457" cy="14" rx="9" ry="9" fill="url(#sg-gold)"/>
+        <rect x="340" y="102" width="16" height="60" rx="4" fill="url(#sg-egl)" stroke="#c8a020" stroke-width="1"/>
+        <rect x="524" y="102" width="16" height="60" rx="4" fill="url(#sg-egr)" stroke="#c8a020" stroke-width="1"/>
+        <rect x="356" y="46" width="168" height="168" rx="26" fill="url(#sg-gold)" stroke="#c8a020" stroke-width="1.5"/>
+        <rect x="375" y="48" width="130" height="17" rx="12" fill="#ffffff" opacity="0.22"/>
+        <rect x="372" y="68" width="136" height="130" rx="14" fill="url(#sg-gf)" stroke="#c8a020" stroke-width="1"/>
+        <circle cx="406" cy="114" r="30" fill="#0a0800"/>
+        <circle cx="474" cy="114" r="30" fill="#0a0800"/>
+        <circle cx="406" cy="114" r="23" fill="url(#sg-ea)"/>
+        <circle cx="474" cy="114" r="23" fill="url(#sg-ea)"/>
+        <circle cx="406" cy="114" r="10" fill="#080400"/>
+        <circle cx="474" cy="114" r="10" fill="#080400"/>
+        <ellipse cx="416" cy="102" rx="11" ry="7" fill="#ffffff" opacity="0.3"/>
+        <ellipse cx="484" cy="102" rx="11" ry="7" fill="#ffffff" opacity="0.3"/>
+        <rect x="384" y="158" width="112" height="18" rx="9" fill="#0a0800"/>
+        <rect x="386" y="160" width="108" height="14" rx="7" fill="#1a1000"/>
+        <rect x="414" y="216" width="52" height="22" rx="7" fill="url(#sg-gold)" stroke="#c8a020" stroke-width="1"/>
+        <!-- Robot 3 -->
+        <rect x="722" y="14" width="7" height="34" rx="3.5" fill="#888786"/>
+        <rect x="706" y="10" width="38" height="10" rx="5" fill="url(#sg-peb)" stroke="#9a9890" stroke-width="1"/>
+        <circle cx="716" cy="15" r="3.5" fill="#4a9eff" opacity="0.9"/>
+        <circle cx="726" cy="15" r="3.5" fill="#4a9eff" opacity="0.45"/>
+        <circle cx="736" cy="15" r="3.5" fill="#4a9eff" opacity="0.8"/>
+        <rect x="625" y="102" width="16" height="60" rx="4" fill="url(#sg-epl)" stroke="#9a9890" stroke-width="1"/>
+        <rect x="809" y="102" width="16" height="60" rx="4" fill="url(#sg-epr)" stroke="#9a9890" stroke-width="1"/>
+        <rect x="641" y="46" width="168" height="168" rx="26" fill="url(#sg-peb)" stroke="#9a9890" stroke-width="1.5"/>
+        <rect x="660" y="48" width="130" height="17" rx="12" fill="#ffffff" opacity="0.2"/>
+        <rect x="657" y="68" width="136" height="130" rx="14" fill="url(#sg-pf)" stroke="#4a4a48" stroke-width="1"/>
+        <rect x="663" y="82" width="124" height="50" rx="8" fill="#050505"/>
+        <rect x="665" y="84" width="120" height="46" rx="7" fill="#080e1a"/>
+        <rect x="669" y="88" width="14" height="38" rx="3" fill="#185FA5" opacity="0.95"/>
+        <rect x="686" y="88" width="8" height="38" rx="3" fill="#185FA5" opacity="0.4"/>
+        <rect x="697" y="88" width="18" height="38" rx="3" fill="#185FA5" opacity="0.8"/>
+        <rect x="718" y="88" width="8" height="38" rx="3" fill="#185FA5" opacity="0.35"/>
+        <rect x="729" y="88" width="14" height="38" rx="3" fill="#185FA5" opacity="0.9"/>
+        <rect x="746" y="88" width="8" height="38" rx="3" fill="#185FA5" opacity="0.45"/>
+        <rect x="757" y="88" width="14" height="38" rx="3" fill="#185FA5" opacity="0.7"/>
+        <rect x="665" y="105" width="120" height="3" rx="1.5" fill="#6EB4FF" opacity="0.75"/>
+        <rect x="663" y="148" width="124" height="18" rx="9" fill="#050505"/>
+        <rect x="667" y="152" width="13" height="10" rx="3" fill="#5F5E5A" opacity="0.85"/>
+        <rect x="683" y="152" width="13" height="10" rx="3" fill="#5F5E5A" opacity="0.35"/>
+        <rect x="699" y="152" width="13" height="10" rx="3" fill="#5F5E5A" opacity="0.85"/>
+        <rect x="715" y="152" width="13" height="10" rx="3" fill="#5F5E5A" opacity="0.35"/>
+        <rect x="731" y="152" width="13" height="10" rx="3" fill="#5F5E5A" opacity="0.85"/>
+        <rect x="747" y="152" width="13" height="10" rx="3" fill="#5F5E5A" opacity="0.35"/>
+        <rect x="763" y="152" width="13" height="10" rx="3" fill="#5F5E5A" opacity="0.7"/>
+        <rect x="699" y="216" width="52" height="22" rx="7" fill="url(#sg-peb)" stroke="#9a9890" stroke-width="1"/>
+        <!-- Labels -->
+        <text x="155" y="258" text-anchor="middle" font-family="'DM Mono',monospace" font-size="16" fill="#4a9eff">optimization</text>
+        <text x="440" y="258" text-anchor="middle" font-family="'DM Mono',monospace" font-size="16" fill="#F5C842">personalization</text>
+        <text x="725" y="258" text-anchor="middle" font-family="'DM Mono',monospace" font-size="16" fill="#B4B2A9">data</text>
+      </svg>
+    </div>
+
+    <!-- Wordmark variants -->
+    <div class="logo-variants">
+      <div class="logo-variant" style="background:#1A1A18;">
+        <div class="wm-hero"><span style="color:#eeeeec">three</span><span style="color:#185FA5">Robot</span></div>
+        <div class="logo-variant-label" style="color:#5F5E5A;">Primary — dark bg</div>
+      </div>
+      <div class="logo-variant" style="background:#f5f5f3; border:1px solid var(--border);">
+        <div class="wm-hero"><span style="color:#1A1A18">three</span><span style="color:#185FA5">Robot</span></div>
+        <div class="logo-variant-label">Primary — light bg</div>
+      </div>
+      <div class="logo-variant">
+        <div class="wm-sm"><span style="color:#1A1A18">three</span><span style="color:#185FA5">Robot</span></div>
+        <div class="logo-variant-label">Small lockup — 22px</div>
+      </div>
+      <div class="logo-variant">
+        <div class="wm-xs"><span style="color:#1A1A18">three</span><span style="color:#185FA5">Robot</span></div>
+        <div class="logo-variant-label">Micro lockup — 16px</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 02 COLOR -->
+  <section class="section">
+    <div class="section-tag">02 / Color</div>
+    <div class="section-title">Color Palette</div>
+    <div class="grid-6">
+      <div class="swatch">
+        <div class="swatch-block" style="background:#1A1A18;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">ink</div>
+          <div class="swatch-hex">#1A1A18</div>
+          <div class="swatch-use">Primary bg, headings, borders</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#185FA5;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">cobalt</div>
+          <div class="swatch-hex">#185FA5</div>
+          <div class="swatch-use">Brand primary, CTAs, links</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#E6F1FB; border-bottom:1px solid #D3D1C7;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">ice</div>
+          <div class="swatch-hex">#E6F1FB</div>
+          <div class="swatch-use">Light fills, hover states</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#D3D1C7;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">pebble</div>
+          <div class="swatch-hex">#D3D1C7</div>
+          <div class="swatch-use">Borders, dividers, muted UI</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#F5C842;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">spark</div>
+          <div class="swatch-hex">#F5C842</div>
+          <div class="swatch-use">Accent, highlights, alerts</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#3B6D11;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">signal</div>
+          <div class="swatch-hex">#3B6D11</div>
+          <div class="swatch-use">Success, active, positive</div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div style="margin-bottom:12px; font-size:10px; color:var(--text-muted); letter-spacing:0.1em; text-transform:uppercase;">CSS Tokens</div>
+    <div class="code-block">
+<span class="comment">/* threeRobot Design Tokens */</span>
+<span class="key">--color-ink</span>:     <span class="val">#1A1A18</span>;
+<span class="key">--color-cobalt</span>:  <span class="val">#185FA5</span>;
+<span class="key">--color-cobalt-lt</span>:<span class="val">#4a9eff</span>;
+<span class="key">--color-ice</span>:     <span class="val">#E6F1FB</span>;
+<span class="key">--color-pebble</span>:  <span class="val">#D3D1C7</span>;
+<span class="key">--color-spark</span>:   <span class="val">#F5C842</span>;
+<span class="key">--color-signal</span>:  <span class="val">#3B6D11</span>;
+<span class="key">--color-bg</span>:      <span class="val">#ffffff</span>;
+<span class="key">--color-surface</span>: <span class="val">#F8F8F6</span>;
+    </div>
+  </section>
+
+
+  <!-- 03 TYPOGRAPHY -->
+  <section class="section">
+    <div class="section-tag">03 / Typography</div>
+    <div class="section-title">Type System</div>
+
+    <div style="margin-bottom:var(--space-5); padding:var(--space-4); background:var(--surface); border-radius:var(--radius-lg); border:1px solid var(--border);">
+      <div style="font-size:10px; color:var(--text-muted); letter-spacing:0.1em; margin-bottom:8px;">FONT FAMILIES</div>
+      <div style="display:flex; gap:var(--space-7);">
+        <div>
+          <div style="font-family:var(--font-display); font-size:22px; font-weight:700; letter-spacing:0.02em;">Rajdhani 700</div>
+          <div style="font-size:10px; color:var(--text-muted); margin-top:4px;">Display · Wordmark · Headings</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-mono); font-size:16px;">Space Mono 400/700</div>
+          <div style="font-size:10px; color:var(--text-muted); margin-top:4px;">Body · Labels · UI · Code</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-label">Display XL</div><div class="type-meta-spec">Rajdhani 700 · 64px · lh 1.05</div></div>
+      <div class="type-sample"><div class="t-display-xl">threeRobot</div></div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-label">Display LG</div><div class="type-meta-spec">Rajdhani 700 · 48px · lh 1.1</div></div>
+      <div class="type-sample"><div class="t-display-lg">Build smarter.</div></div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-label">Display MD</div><div class="type-meta-spec">Rajdhani 600 · 32px · lh 1.2</div></div>
+      <div class="type-sample"><div class="t-display-md">Ship faster.</div></div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-label">Heading</div><div class="type-meta-spec">Rajdhani 600 · 24px · lh 1.3</div></div>
+      <div class="type-sample"><div class="t-heading">Section heading</div></div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-label">Subheading</div><div class="type-meta-spec">Space Mono 700 · 15px · lh 1.4</div></div>
+      <div class="type-sample"><div class="t-subheading">Component subheading</div></div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-label">Body</div><div class="type-meta-spec">Space Mono 400 · 13px · lh 1.8</div></div>
+      <div class="type-sample"><div class="t-body">The three pillars of threeRobot — optimization, personalization, and data — work together to power intelligent SaaS workflows.</div></div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-label">Small</div><div class="type-meta-spec">Space Mono 400 · 11px · lh 1.6</div></div>
+      <div class="type-sample"><div class="t-small">Helper text, descriptions, secondary information</div></div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-label">Caption / Label</div><div class="type-meta-spec">Space Mono 400 · 10px · ls 0.12em</div></div>
+      <div class="type-sample"><div class="t-caption">Section tag · Metadata · Uppercase labels</div></div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-label">Code</div><div class="type-meta-spec">Space Mono 400 · 12px</div></div>
+      <div class="type-sample"><span class="t-code">const robot = new threeRobot();</span></div>
+    </div>
+  </section>
+
+
+  <!-- 04 SPACING -->
+  <section class="section">
+    <div class="section-tag">04 / Spacing</div>
+    <div class="section-title">Spacing Scale</div>
+    <div style="display:flex; flex-direction:column; gap:0;">
+      <div class="space-row">
+        <div class="space-bar-wrap"><div class="space-bar" style="width:4px;"></div></div>
+        <div class="space-label">4px</div>
+        <div class="space-token">--space-1 · xs</div>
+      </div>
+      <div class="space-row">
+        <div class="space-bar-wrap"><div class="space-bar" style="width:8px;"></div></div>
+        <div class="space-label">8px</div>
+        <div class="space-token">--space-2 · sm</div>
+      </div>
+      <div class="space-row">
+        <div class="space-bar-wrap"><div class="space-bar" style="width:12px;"></div></div>
+        <div class="space-label">12px</div>
+        <div class="space-token">--space-3</div>
+      </div>
+      <div class="space-row">
+        <div class="space-bar-wrap"><div class="space-bar" style="width:16px;"></div></div>
+        <div class="space-label">16px</div>
+        <div class="space-token">--space-4 · md</div>
+      </div>
+      <div class="space-row">
+        <div class="space-bar-wrap"><div class="space-bar" style="width:24px;"></div></div>
+        <div class="space-label">24px</div>
+        <div class="space-token">--space-5</div>
+      </div>
+      <div class="space-row">
+        <div class="space-bar-wrap"><div class="space-bar" style="width:32px;"></div></div>
+        <div class="space-label">32px</div>
+        <div class="space-token">--space-6 · lg</div>
+      </div>
+      <div class="space-row">
+        <div class="space-bar-wrap"><div class="space-bar" style="width:48px;"></div></div>
+        <div class="space-label">48px</div>
+        <div class="space-token">--space-7</div>
+      </div>
+      <div class="space-row">
+        <div class="space-bar-wrap"><div class="space-bar" style="width:64px;"></div></div>
+        <div class="space-label">64px</div>
+        <div class="space-token">--space-8 · xl</div>
+      </div>
+      <div class="space-row">
+        <div class="space-bar-wrap"><div class="space-bar" style="width:96px;"></div></div>
+        <div class="space-label">96px</div>
+        <div class="space-token">--space-9 · 2xl</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 05 BORDER RADIUS -->
+  <section class="section">
+    <div class="section-tag">05 / Border Radius</div>
+    <div class="section-title">Radius Scale</div>
+    <div style="display:flex; gap:var(--space-5); flex-wrap:wrap; align-items:flex-end;">
+      <div style="text-align:center;">
+        <div style="width:48px;height:48px;background:var(--cobalt);border-radius:4px;margin:0 auto var(--space-2);"></div>
+        <div style="font-size:10px;color:var(--text-muted);">sm · 4px</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:64px;height:64px;background:var(--cobalt);border-radius:8px;margin:0 auto var(--space-2);"></div>
+        <div style="font-size:10px;color:var(--text-muted);">md · 8px</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:80px;height:80px;background:var(--cobalt);border-radius:14px;margin:0 auto var(--space-2);"></div>
+        <div style="font-size:10px;color:var(--text-muted);">lg · 14px</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:96px;height:96px;background:var(--cobalt);border-radius:22px;margin:0 auto var(--space-2);"></div>
+        <div style="font-size:10px;color:var(--text-muted);">xl · 22px</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="width:96px;height:40px;background:var(--cobalt);border-radius:999px;margin:0 auto var(--space-2);"></div>
+        <div style="font-size:10px;color:var(--text-muted);">pill · 999px</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 06 BUTTONS -->
+  <section class="section">
+    <div class="section-tag">06 / Buttons</div>
+    <div class="section-title">Button System</div>
+
+    <div style="font-size:10px;color:var(--text-muted);letter-spacing:0.1em;margin-bottom:var(--space-3);text-transform:uppercase;">Variants</div>
+    <div class="btn-row">
+      <button class="btn btn-primary">Primary action</button>
+      <button class="btn btn-secondary">Secondary</button>
+      <button class="btn btn-spark">Spark CTA</button>
+      <button class="btn btn-ghost">Ghost</button>
+      <button class="btn btn-danger">Danger</button>
+    </div>
+
+    <div style="font-size:10px;color:var(--text-muted);letter-spacing:0.1em;margin-bottom:var(--space-3);margin-top:var(--space-5);text-transform:uppercase;">Sizes</div>
+    <div class="btn-row">
+      <button class="btn btn-primary btn-sm">Small</button>
+      <button class="btn btn-primary">Default</button>
+      <button class="btn btn-primary btn-lg">Large</button>
+      <button class="btn btn-primary btn-pill">Pill shape</button>
+    </div>
+
+    <div class="code-block">
+<span class="comment">/* Button tokens */</span>
+<span class="key">--btn-radius</span>:    <span class="val">8px</span>;        <span class="comment">/* --radius-md */</span>
+<span class="key">--btn-padding</span>:    <span class="val">10px 22px</span>;
+<span class="key">--btn-font</span>:       <span class="val">Space Mono 700</span>;
+<span class="key">--btn-transition</span>: <span class="val">all 0.15s ease</span>;
+    </div>
+  </section>
+
+
+  <!-- 07 INPUTS -->
+  <section class="section">
+    <div class="section-tag">07 / Inputs</div>
+    <div class="section-title">Form Elements</div>
+    <div class="grid-2">
+      <div>
+        <div class="input-group">
+          <label class="input-label">Default input</label>
+          <input class="input" placeholder="Enter value..." />
+          <div class="helper">Helper text goes here</div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Error state</label>
+          <input class="input input-error" value="invalid@" />
+          <div class="helper-error">Invalid email address</div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Success state</label>
+          <input class="input input-success" value="russ@threerobot.io" />
+          <div class="helper" style="color:#6fcf3a;">Looks good!</div>
+        </div>
+      </div>
+      <div>
+        <div class="input-group">
+          <label class="input-label">Textarea</label>
+          <textarea class="input" rows="4" placeholder="Describe your use case..."></textarea>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Select</label>
+          <select class="input">
+            <option>Optimization</option>
+            <option>Personalization</option>
+            <option>Data collection</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 08 CARDS -->
+  <section class="section">
+    <div class="section-tag">08 / Cards</div>
+    <div class="section-title">Card Variants</div>
+    <div class="grid-3">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:var(--space-3);">
+          <span class="badge badge-cobalt badge-dot">active</span>
+        </div>
+        <div class="card-title">Default card</div>
+        <div class="card-body">Use for general content blocks, feature callouts, and secondary information.</div>
+        <div class="card-meta">card · default variant</div>
+      </div>
+      <div class="card-accent">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:var(--space-3);">
+          <span class="badge badge-spark badge-dot">new</span>
+        </div>
+        <div class="card-title">Accent card</div>
+        <div class="card-body">Top border in cobalt. Use for featured items, primary options, or highlighted content.</div>
+        <div class="card-meta">card · accent variant</div>
+      </div>
+      <div class="card-spark">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:var(--space-3);">
+          <span class="badge badge-signal badge-dot">premium</span>
+        </div>
+        <div class="card-title">Spark card</div>
+        <div class="card-body">Spark-tinted border. Use for promotional content, upsell moments, or special features.</div>
+        <div class="card-meta">card · spark variant</div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Stat cards -->
+    <div style="font-size:10px;color:var(--text-muted);letter-spacing:0.1em;margin-bottom:var(--space-4);text-transform:uppercase;">Stat Cards</div>
+    <div class="grid-4">
+      <div class="stat-card">
+        <div class="stat-label">Total users</div>
+        <div class="stat-value" style="color:var(--cobalt);">12,480</div>
+        <div class="stat-delta delta-up">↑ 14.2% this month</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Optimizations run</div>
+        <div class="stat-value" style="color:#8a6500;">94.3k</div>
+        <div class="stat-delta delta-up">↑ 8.7% this week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Avg accuracy</div>
+        <div class="stat-value" style="color:#2d6a0a;">98.1%</div>
+        <div class="stat-delta delta-up">↑ 0.3% vs last period</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Error rate</div>
+        <div class="stat-value" style="color:#b91c1c;">0.04%</div>
+        <div class="stat-delta delta-down">↓ 0.01% — good</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 09 BADGES -->
+  <section class="section">
+    <div class="section-tag">09 / Badges</div>
+    <div class="section-title">Badges &amp; Pills</div>
+    <div style="display:flex;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--space-5);">
+      <span class="badge badge-cobalt">cobalt</span>
+      <span class="badge badge-spark">spark</span>
+      <span class="badge badge-signal">signal</span>
+      <span class="badge badge-danger">danger</span>
+      <span class="badge badge-neutral">neutral</span>
+      <span class="badge badge-cobalt badge-dot">active</span>
+      <span class="badge badge-spark badge-dot">new</span>
+      <span class="badge badge-signal badge-dot">live</span>
+      <span class="badge badge-danger badge-dot">error</span>
+      <span class="badge badge-neutral badge-dot">offline</span>
+    </div>
+  </section>
+
+
+  <!-- 10 ALERTS -->
+  <section class="section">
+    <div class="section-tag">10 / Alerts</div>
+    <div class="section-title">Alert Banners</div>
+    <div class="alert alert-info">
+      <div class="alert-icon">ℹ</div>
+      <div><div class="alert-title">System update scheduled</div><div class="alert-body">threeRobot will be in maintenance mode on Sunday at 2:00 AM UTC.</div></div>
+    </div>
+    <div class="alert alert-success">
+      <div class="alert-icon">✓</div>
+      <div><div class="alert-title">Optimization complete</div><div class="alert-body">Your pipeline ran successfully with a 98.3% accuracy score.</div></div>
+    </div>
+    <div class="alert alert-warning">
+      <div class="alert-icon">⚡</div>
+      <div><div class="alert-title">Rate limit approaching</div><div class="alert-body">You've used 87% of your monthly API quota. Consider upgrading your plan.</div></div>
+    </div>
+    <div class="alert alert-danger">
+      <div class="alert-icon">✕</div>
+      <div><div class="alert-title">Connection failed</div><div class="alert-body">Unable to reach the data endpoint. Check your API credentials and retry.</div></div>
+    </div>
+  </section>
+
+
+  <!-- 11 PROGRESS -->
+  <section class="section">
+    <div class="section-tag">11 / Progress</div>
+    <div class="section-title">Progress Indicators</div>
+    <div style="max-width:480px;">
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-bottom:6px;"><span>Optimization score</span><span style="color:var(--cobalt);">87%</span></div>
+      <div class="progress-wrap"><div class="progress-bar" style="width:87%;background:var(--cobalt);"></div></div>
+
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-bottom:6px;"><span>Personalization index</span><span style="color:#8a6500;">63%</span></div>
+      <div class="progress-wrap"><div class="progress-bar" style="width:63%;background:var(--spark);"></div></div>
+
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-bottom:6px;"><span>Data coverage</span><span style="color:#2d6a0a;">94%</span></div>
+      <div class="progress-wrap"><div class="progress-bar" style="width:94%;background:var(--signal);"></div></div>
+
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-bottom:6px;"><span>Error rate</span><span style="color:#b91c1c;">4%</span></div>
+      <div class="progress-wrap"><div class="progress-bar" style="width:4%;background:#ef4444;"></div></div>
+    </div>
+  </section>
+
+
+  <!-- 12 NAVIGATION -->
+  <section class="section">
+    <div class="section-tag">12 / Navigation</div>
+    <div class="section-title">Nav Components</div>
+    <div class="nav-demo">
+      <div class="nav-logo"><span style="color:var(--text-primary)">three</span><span style="color:var(--cobalt)">Robot</span></div>
+      <div class="nav-links">
+        <a href="#" class="nav-link active">Platform</a>
+        <a href="#" class="nav-link">Docs</a>
+        <a href="#" class="nav-link">Pricing</a>
+        <a href="#" class="nav-link">Blog</a>
+      </div>
+      <a href="#" class="nav-cta">Get started →</a>
+    </div>
+  </section>
+
+
+  <!-- 13 AVATARS + TOGGLES -->
+  <section class="section">
+    <div class="section-tag">13 / Avatars &amp; Toggles</div>
+    <div class="section-title">UI Utilities</div>
+    <div class="grid-2">
+      <div>
+        <div style="font-size:10px;color:var(--text-muted);letter-spacing:0.1em;margin-bottom:var(--space-4);text-transform:uppercase;">Avatars</div>
+        <div class="avatar-row">
+          <div class="avatar avatar-cobalt">OPT</div>
+          <div class="avatar-info"><div class="name">Optimization Bot</div><div class="role">OPT-01 · cobalt</div></div>
+        </div>
+        <div class="avatar-row">
+          <div class="avatar avatar-spark">PRS</div>
+          <div class="avatar-info"><div class="name">Personalization Bot</div><div class="role">PRS-02 · spark</div></div>
+        </div>
+        <div class="avatar-row">
+          <div class="avatar avatar-signal">DAT</div>
+          <div class="avatar-info"><div class="name">Data Bot</div><div class="role">DAT-03 · signal</div></div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;color:var(--text-muted);letter-spacing:0.1em;margin-bottom:var(--space-4);text-transform:uppercase;">Toggles</div>
+        <div class="toggle-wrap"><div class="toggle on"></div><div class="toggle-label">Optimization enabled</div></div>
+        <div class="toggle-wrap"><div class="toggle on"></div><div class="toggle-label">Personalization active</div></div>
+        <div class="toggle-wrap"><div class="toggle"></div><div class="toggle-label">Data collection paused</div></div>
+        <div class="toggle-wrap"><div class="toggle"></div><div class="toggle-label">Beta features</div></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 14 DATA TABLE -->
+  <section class="section">
+    <div class="section-tag">14 / Data Tables</div>
+    <div class="section-title">Table</div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;">
+      <table>
+        <thead>
+          <tr>
+            <th>Robot</th>
+            <th>Pillar</th>
+            <th>Status</th>
+            <th>Score</th>
+            <th>Last run</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:8px;"><div class="avatar avatar-cobalt" style="width:28px;height:28px;font-size:10px;">OPT</div>OPT-01</div></td>
+            <td>Optimization</td>
+            <td><span class="badge badge-signal badge-dot">live</span></td>
+            <td style="color:var(--cobalt);">98.3%</td>
+            <td>2 min ago</td>
+          </tr>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:8px;"><div class="avatar avatar-spark" style="width:28px;height:28px;font-size:10px;">PRS</div>PRS-02</div></td>
+            <td>Personalization</td>
+            <td><span class="badge badge-signal badge-dot">live</span></td>
+            <td style="color:#8a6500;">94.1%</td>
+            <td>5 min ago</td>
+          </tr>
+          <tr>
+            <td><div style="display:flex;align-items:center;gap:8px;"><div class="avatar avatar-signal" style="width:28px;height:28px;font-size:10px;">DAT</div>DAT-03</div></td>
+            <td>Data</td>
+            <td><span class="badge badge-neutral badge-dot">idle</span></td>
+            <td style="color:var(--text-secondary);">—</td>
+            <td>1 hr ago</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <!-- 15 SHADOWS -->
+  <section class="section">
+    <div class="section-tag">15 / Elevation</div>
+    <div class="section-title">Shadow System</div>
+    <div style="display:flex;gap:var(--space-5);flex-wrap:wrap;">
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-5);width:160px;box-shadow:var(--shadow-sm);text-align:center;">
+        <div style="font-size:11px;color:var(--text-secondary);">shadow-sm</div>
+        <div style="font-size:10px;color:var(--text-muted);margin-top:4px;">Subtle lift</div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-5);width:160px;box-shadow:var(--shadow-md);text-align:center;">
+        <div style="font-size:11px;color:var(--text-secondary);">shadow-md</div>
+        <div style="font-size:10px;color:var(--text-muted);margin-top:4px;">Cards on hover</div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-5);width:160px;box-shadow:var(--shadow-lg);text-align:center;">
+        <div style="font-size:11px;color:var(--text-secondary);">shadow-lg</div>
+        <div style="font-size:10px;color:var(--text-muted);margin-top:4px;">Modals, dropdowns</div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-5);width:160px;box-shadow:var(--shadow-cobalt);text-align:center;">
+        <div style="font-size:11px;color:var(--cobalt);">shadow-cobalt</div>
+        <div style="font-size:10px;color:var(--text-muted);margin-top:4px;">Primary buttons</div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-5);width:160px;box-shadow:var(--shadow-spark);text-align:center;">
+        <div style="font-size:11px;color:#8a6500;">shadow-spark</div>
+        <div style="font-size:10px;color:var(--text-muted);margin-top:4px;">Spark CTAs</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <div style="padding:var(--space-7) 0 var(--space-4); display:flex; justify-content:space-between; align-items:center;">
+    <div style="font-family:var(--font-display); font-size:18px; font-weight:700; letter-spacing:0.02em;"><span style="color:var(--text-primary)">three</span><span style="color:var(--cobalt)">Robot</span></div>
+    <div style="font-size:10px; color:var(--text-muted); letter-spacing:0.08em;">BRAND STYLE GUIDE v1.0 · CONFIDENTIAL</div>
+    <div style="font-size:10px; color:var(--text-muted);">optimize · personalize · connect</div>
+  </div>
+
+</div>
+</body>
+</html>
